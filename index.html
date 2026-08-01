@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Control Room Alert Monitoring System</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ TOP STATUS BAR ============ -->
+  <header class="topbar">
+    <div class="brand">
+      <i class="fa-solid fa-radiation brand-icon"></i>
+      <div class="brand-text">
+        <h1>Control Room Alert Monitoring System</h1>
+        <p>Prototype dashboard &middot; independent learning project</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <div class="system-status">
+        <span class="status-dot"></span>
+        <span>MONITORING ACTIVE</span>
+      </div>
+      <div class="live-clock" id="liveClock">--:--:--</div>
+    </div>
+  </header>
+
+  <!-- ============ NAV BAR (shared across all pages) ============ -->
+  <nav class="mainnav">
+    <a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="add.html"><i class="fa-solid fa-plus"></i> Add Alert</a>
+    <a href="view.html"><i class="fa-solid fa-table-list"></i> View Alerts</a>
+    <a href="search.html"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+    <a href="stats.html"><i class="fa-solid fa-chart-simple"></i> Statistics</a>
+  </nav>
+
+  <div class="disclaimer-strip">
+    <i class="fa-solid fa-circle-info"></i>
+    This is an independent student prototype inspired by general control room concepts observed during an in-plant training program. It is <strong>not official software of any nuclear facility</strong>, and uses no real plant data, logos, or credentials.
+  </div>
+
+  <main class="dashboard">
+
+    <section class="hero-card">
+      <div class="hero-text">
+        <h2>Welcome to the Control Room Dashboard</h2>
+        <p>Log, track, and manage control room alerts across four dedicated pages: adding new alerts, viewing and updating the full log, searching by Alert ID, and reviewing live statistics.</p>
+        <div class="hero-actions">
+          <a href="add.html" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Log a New Alert</a>
+          <a href="view.html" class="btn btn-secondary"><i class="fa-solid fa-table-list"></i> View Alert Log</a>
+        </div>
+      </div>
+      <div class="hero-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+    </section>
+
+    <!-- ============ QUICK STATS OVERVIEW ============ -->
+    <section class="stats-row" aria-label="Quick statistics overview">
+      <div class="stat-card stat-total">
+        <div class="stat-icon"><i class="fa-solid fa-list-check"></i></div>
+        <div class="stat-info">
+          <span class="stat-value" id="statTotal">0</span>
+          <span class="stat-label">Total Alerts</span>
+        </div>
+      </div>
+      <div class="stat-card stat-open">
+        <div class="stat-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <div class="stat-info">
+          <span class="stat-value" id="statOpen">0</span>
+          <span class="stat-label">Open Alerts</span>
+        </div>
+      </div>
+      <div class="stat-card stat-closed">
+        <div class="stat-icon"><i class="fa-solid fa-circle-check"></i></div>
+        <div class="stat-info">
+          <span class="stat-value" id="statClosed">0</span>
+          <span class="stat-label">Closed Alerts</span>
+        </div>
+      </div>
+      <div class="stat-card stat-high">
+        <div class="stat-icon"><i class="fa-solid fa-bolt"></i></div>
+        <div class="stat-info">
+          <span class="stat-value" id="statHigh">0</span>
+          <span class="stat-label">High Priority</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel shortcuts-panel">
+      <div class="panel-header">
+        <i class="fa-solid fa-compass"></i>
+        <h2>Quick Navigation</h2>
+      </div>
+      <div class="shortcuts-grid">
+        <a href="add.html" class="shortcut-card">
+          <i class="fa-solid fa-plus-square"></i>
+          <h3>Add Alert</h3>
+          <p>Log a new alert with location, type, priority and status.</p>
+        </a>
+        <a href="view.html" class="shortcut-card">
+          <i class="fa-solid fa-table-list"></i>
+          <h3>View Alerts</h3>
+          <p>See the full alert log, update status, or delete entries.</p>
+        </a>
+        <a href="search.html" class="shortcut-card">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <h3>Search</h3>
+          <p>Find a specific alert instantly using its Alert ID.</p>
+        </a>
+        <a href="stats.html" class="shortcut-card">
+          <i class="fa-solid fa-chart-simple"></i>
+          <h3>Statistics</h3>
+          <p>Review total, open, closed and high-priority counts.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Student prototype &middot; Built with HTML, CSS &amp; JavaScript &middot; Data stored locally in your browser only</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

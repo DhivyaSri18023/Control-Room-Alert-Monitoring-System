@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Add Alert &middot; Control Room Alert Monitoring System</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <i class="fa-solid fa-radiation brand-icon"></i>
+      <div class="brand-text">
+        <h1>Control Room Alert Monitoring System</h1>
+        <p>Prototype dashboard &middot; independent learning project</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <div class="system-status">
+        <span class="status-dot"></span>
+        <span>MONITORING ACTIVE</span>
+      </div>
+      <div class="live-clock" id="liveClock">--:--:--</div>
+    </div>
+  </header>
+
+  <nav class="mainnav">
+    <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="add.html" class="active"><i class="fa-solid fa-plus"></i> Add Alert</a>
+    <a href="view.html"><i class="fa-solid fa-table-list"></i> View Alerts</a>
+    <a href="search.html"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+    <a href="stats.html"><i class="fa-solid fa-chart-simple"></i> Statistics</a>
+  </nav>
+
+  <main class="dashboard dashboard-narrow">
+
+    <section class="panel form-panel">
+      <div class="panel-header">
+        <i class="fa-solid fa-plus-square"></i>
+        <h2>Log New Alert</h2>
+      </div>
+
+      <form id="alertForm" novalidate>
+
+        <div class="field">
+          <label for="alertId">Alert ID</label>
+          <input type="text" id="alertId" placeholder="e.g. ALM-1042" autocomplete="off" />
+        </div>
+
+        <div class="field">
+          <label for="alertDateTime">Date &amp; Time</label>
+          <input type="datetime-local" id="alertDateTime" />
+        </div>
+
+        <div class="field">
+          <label for="alertLocation">Location</label>
+          <input type="text" id="alertLocation" placeholder="e.g. Turbine Hall - Zone 2" autocomplete="off" />
+        </div>
+
+        <div class="field">
+          <label for="alertType">Alert Type</label>
+          <select id="alertType">
+            <option value="">-- Select Type --</option>
+            <option value="Temperature">Temperature</option>
+            <option value="Pressure">Pressure</option>
+            <option value="Radiation Level">Radiation Level</option>
+            <option value="Coolant Flow">Coolant Flow</option>
+            <option value="Power Fluctuation">Power Fluctuation</option>
+            <option value="Fire / Smoke">Fire / Smoke</option>
+            <option value="Equipment Fault">Equipment Fault</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="alertPriority">Priority</label>
+            <select id="alertPriority">
+              <option value="High">High</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="alertStatus">Status</label>
+            <select id="alertStatus">
+              <option value="Open" selected>Open</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Closed">Closed</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="formMessage" class="form-message" role="alert"></div>
+
+        <div class="form-actions">
+          <button type="submit" id="addAlertBtn" class="btn btn-primary">
+            <i class="fa-solid fa-plus"></i> Add Alert
+          </button>
+          <button type="button" id="clearFormBtn" class="btn btn-secondary">
+            <i class="fa-solid fa-rotate-left"></i> Clear Form
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Student prototype &middot; Built with HTML, CSS &amp; JavaScript &middot; Data stored locally in your browser only</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

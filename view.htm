@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>View Alerts &middot; Control Room Alert Monitoring System</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <i class="fa-solid fa-radiation brand-icon"></i>
+      <div class="brand-text">
+        <h1>Control Room Alert Monitoring System</h1>
+        <p>Prototype dashboard &middot; independent learning project</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <div class="system-status">
+        <span class="status-dot"></span>
+        <span>MONITORING ACTIVE</span>
+      </div>
+      <div class="live-clock" id="liveClock">--:--:--</div>
+    </div>
+  </header>
+
+  <nav class="mainnav">
+    <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="add.html"><i class="fa-solid fa-plus"></i> Add Alert</a>
+    <a href="view.html" class="active"><i class="fa-solid fa-table-list"></i> View Alerts</a>
+    <a href="search.html"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+    <a href="stats.html"><i class="fa-solid fa-chart-simple"></i> Statistics</a>
+  </nav>
+
+  <main class="dashboard">
+
+    <section class="panel table-panel">
+      <div class="panel-header">
+        <i class="fa-solid fa-table-list"></i>
+        <h2>Full Alert Log</h2>
+      </div>
+
+      <div id="pageMessage" class="form-message page-message" role="alert"></div>
+
+      <div class="table-scroll-wrapper">
+        <table id="alertsTable">
+          <thead>
+            <tr>
+              <th class="col-indicator"></th>
+              <th>Alert ID</th>
+              <th>Date &amp; Time</th>
+              <th>Location</th>
+              <th>Type</th>
+              <th>Priority</th>
+              <th>Status</th>
+              <th class="col-actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="alertsTableBody"></tbody>
+        </table>
+
+        <div id="emptyState" class="empty-state">
+          <i class="fa-solid fa-shield-halved"></i>
+          <p>No alerts logged yet. <a href="add.html">Add your first alert</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Student prototype &middot; Built with HTML, CSS &amp; JavaScript &middot; Data stored locally in your browser only</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
